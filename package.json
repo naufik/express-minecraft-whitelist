@@ -1,0 +1,24 @@
+{
+  "name": "express-minecraft-whitelist",
+  "version": "1.0.0",
+  "description": "Simple express.js-based API that lets you whitelist players on a Minecraft server with a POST request.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./dist/index.js"
+  },
+  "author": "naufik",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "fs": "0.0.1-security"
+  },
+  "devDependencies": {
+    "@types/express": "^4.0.39",
+    "@types/node": "^8.0.57",
+    "gulp-typescript": "^3.2.3",
+    "typescript": "^2.6.2",
+    "typings": "^2.1.1"
+  }
+}
