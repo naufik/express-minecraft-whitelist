@@ -28,6 +28,9 @@ class WhitelistRouter {
 	public initRoutes() {
 		this.router.post('/', this.handleWhitelistRequest);
 		this.router.get('/:player', this.handleIsWhitelistedRequest);
+		this.router.get('/', (req, res) => {
+			res.send("Whitelist server active.");
+		})
 	}
 }
 

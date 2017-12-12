@@ -40,11 +40,7 @@ export default class Whitelister {
 	}
 
 	public isWhiteListed(name: string): boolean {
-		try {
-			return this.read().includes(name);
-		} finally {
-			return false;
-		}
+		return this.read().includes(name);
 	}
 
 }

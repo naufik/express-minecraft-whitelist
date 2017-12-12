@@ -16,12 +16,8 @@ class Server {
 	}
 
 	public routes() {
-		let router = Express.Router();
-		router.get('/', (req, res) => {
-			res.send('lmao nice try hacker');
-		});
-
-		this.app.use('/wl', WhitelistRouter);
+		
+		this.app.use('/', WhitelistRouter);
 	}
 
 }
