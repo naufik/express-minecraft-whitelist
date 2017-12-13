@@ -4,9 +4,17 @@ A simple project I created while following `express.js` and `typescript` tutoria
 
 This is a simple API backend that allows you to whitelist minecraft players through HTTP get requests. Essentially this is only a **text-file appender** but it sounds fancier when acting as a Minecraft whitelister - which is what I am using it for at the moment.
 
+## Pre-build Configuration
+
+Before you can use the server, you need to make some changes to the source **before** compiling the server. The changes you need to make is in the `customization.ts` file. This file acts as the "customizable part" of the server -- any modificaiton done here is deemed safe.
+
+You should modify this file as:
+1. Change the `WHITELIST_TXT` constant to point at your Minecraft Server's whitelist.txt file.
+2. Guides on how to set up password-based whitelisting will be here soon.
+
 ## Building the server
 
-Since this is a `typescript` project, you will need to build the javascript files of the server. **Before doing this, you should modify `whitelister.ts` and change the `WHITELIST_TXT` variable to point at your Minecraft server's `whitelist.txt` file**. A config-file based modification will be added soon.
+To build the Express server (that is, compiling from the `typescript` source code to the `javascript` code):
 
 1. Fire up terminal and navigate to the folder where you cloned the project.
 2. Run `npm install`, this installs the `nodejs` dependencies of the project including `typescript`, `express` and all the `@types/*` file required.
@@ -15,8 +23,7 @@ Since this is a `typescript` project, you will need to build the javascript file
 4. The server is already built at this point.
 
 
-
-##Starting the server
+## Starting the server
 
 Once the server is build, use `npm start` to start the server.
 
@@ -42,8 +49,8 @@ To whitelist a player, send an HTTP `POST` request to the root of the server wit
 
 ```json
 {
-  "player": [name of the player, required],
-  "key": [optional key object - can be anything]
+  "player": "name of the player, required",
+  "key": "optional key object"
 }
 ```
 
