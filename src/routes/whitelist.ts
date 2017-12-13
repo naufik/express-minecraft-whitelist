@@ -13,14 +13,14 @@ class WhitelistRouter {
 
 	public handleWhitelistRequest(req: Request, res: Response) {
 		let out: boolean;
-		console.log("post request received");
 		if (req.body.key) {
 			out = wl.whitelist(req.body.username, req.body.key);
 		} else {
 			out = wl.whitelist(req.body.username, {});
 		}
 		
-		res.header("Access-Control-Allow-Origin", "*");		
+		res.header("Access-Control-Allow-Origin", "*");
+		res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 		res.json({
 			username: req.body.username,
 			success: out
@@ -28,6 +28,7 @@ class WhitelistRouter {
 	}
 	public handleIsWhitelistedRequest(req: Request, res: Response) {
 		res.header("Access-Control-Allow-Origin", "*");
+
 		res.json({
 			username: req.params.player,
 			whitelisted: wl.isWhiteListed(req.params.player)
