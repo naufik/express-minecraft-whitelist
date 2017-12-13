@@ -60,3 +60,4 @@ typings/
 dist/
 *.sublime-workspace
 *.sublime-project
+customization.ts

@@ -3,7 +3,7 @@
 	Which right now it is a 'simple password'.
 */
 import * as Crypto from 'crypto';
-import Validator from './ivalidator';
+import Validator from './auth/ivalidator';
 
 export default class KeyValidator {
 	private hashedKey: string;
@@ -13,7 +13,6 @@ export default class KeyValidator {
 		this.hashedKey = Crypto.createHash('sha256')
 			.update(key)
 			.digest('base64');
-		console.log(this.hashedKey);
 
 		this.validationMethod = (key) => {
 			if (Crypto.createHash('sha256').update(key).digest('base64') == this.hashedKey) {

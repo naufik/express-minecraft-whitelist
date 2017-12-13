@@ -1,7 +1,7 @@
 import { Router, Request, Response, NextFunction } from 'express';
-import Whitelister from '../whitelister';
+import Whitelister from '../customization';
 
-const wl = new Whitelister();
+const wl = Whitelister;
 
 class WhitelistRouter {
 	public router: Router;
@@ -13,22 +13,32 @@ class WhitelistRouter {
 
 	public handleWhitelistRequest(req: Request, res: Response) {
 		let out: boolean;
+		console.log("post request received");
 		if (req.body.key) {
-			out = wl.whitelist(req.body.player, req.body.key);
+			out = wl.whitelist(req.body.username, req.body.key);
 		} else {
-			out = wl.whitelist(req.body.player, {});
+			out = wl.whitelist(req.body.username, {});
 		}
-		res.send(out);
+		
+		res.header("Access-Control-Allow-Origin", "*");		
+		res.json({
+			username: req.body.username,
+			success: out
+		});
 	}
-
 	public handleIsWhitelistedRequest(req: Request, res: Response) {
-		res.send(wl.isWhiteListed(req.params.player));
+		res.header("Access-Control-Allow-Origin", "*");
+		res.json({
+			username: req.params.player,
+			whitelisted: wl.isWhiteListed(req.params.player)
+		});
 	}
 
 	public initRoutes() {
 		this.router.post('/', this.handleWhitelistRequest);
 		this.router.get('/:player', this.handleIsWhitelistedRequest);
 		this.router.get('/', (req, res) => {
+			res.header("Access-Control-Allow-Origin", "*");
 			res.send("Whitelist server active.");
 		})
 	}

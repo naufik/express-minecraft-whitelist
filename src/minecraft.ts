@@ -13,10 +13,12 @@ class Server {
 
 	public config() {
 		this.app.use(BodyParser.json());
+		this.app.use(BodyParser.urlencoded({
+			extended: true
+		}));
 	}
 
 	public routes() {
-		
 		this.app.use('/', WhitelistRouter);
 	}
 

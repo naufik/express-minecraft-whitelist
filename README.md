@@ -1,6 +1,6 @@
 # Express Minecraft Whitelist
 
-A simple project I created while following `express.js` and `typescript` tutorials, so this project is sort of a mess.
+A simple project I created while following `express.js` and `typescript` tutorials, so it's not the best in terms of organization but it works.
 
 This is a simple API backend that allows you to whitelist minecraft players through HTTP get requests. Essentially this is only a **text-file appender** but it sounds fancier when acting as a Minecraft whitelister - which is what I am using it for at the moment.
 
@@ -13,6 +13,8 @@ Since this is a `typescript` project, you will need to build the javascript file
 3. Type `npm run compile`, this fires up the TypeScript compiler (`tsc`) and outputs all the `.js` files to the `./dist/` directory. 
    **If you would like to change any compilation configuration, modify `tsconfig.json` to your liking.**
 4. The server is already built at this point.
+
+
 
 ##Starting the server
 

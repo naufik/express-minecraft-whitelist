@@ -5,6 +5,6 @@ app.listen(3000, (err) => {
 	if(err){
 		console.log(err);
 	}
-	console.log("started at 3k");
+	console.log("Whitelist Server started at port 3000.");
 
 })
