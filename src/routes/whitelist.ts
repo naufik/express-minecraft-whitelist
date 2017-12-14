@@ -35,13 +35,23 @@ class WhitelistRouter {
 		});
 	}
 
+	public handleCorsRequest(req: Request, res: Response) {
+		res.header("Access-Control-Allow-Origin", "*");
+		res.header("Access-Control-Allow-Methods", "POST, GET");
+		res.header("Access-Control-Allow-Headers", "Content-Type");
+		res.json({
+			allow: (req.method == "GET" || req.method == "POST")
+		})
+	}
+
 	public initRoutes() {
 		this.router.post('/', this.handleWhitelistRequest);
 		this.router.get('/:player', this.handleIsWhitelistedRequest);
 		this.router.get('/', (req, res) => {
 			res.header("Access-Control-Allow-Origin", "*");
 			res.send("Whitelist server active.");
-		})
+		});
+		this.router.options('/', this.handleCorsRequest)
 	}
 }
 
