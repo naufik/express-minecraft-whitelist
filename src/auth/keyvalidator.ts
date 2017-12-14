@@ -14,8 +14,8 @@ export default class KeyValidator {
 			.update(key)
 			.digest('base64');
 
-		this.validationMethod = (key) => {
-			if (Crypto.createHash('sha256').update(key).digest('base64') == this.hashedKey) {
+		this.validationMethod = (key: any) => {
+			if (Crypto.createHash('sha256').update(key.string).digest('base64') == this.hashedKey) {
 				return true;
 			}
 			return false;
