@@ -14,10 +14,12 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "fs": "0.0.1-security",
-    "graceful-fs": "^4.1.11"
+    "graceful-fs": "^4.1.11",
+    "locutus": "^2.0.9"
   },
   "devDependencies": {
     "@types/express": "^4.0.39",
+    "@types/locutus": "0.0.5",
     "@types/node": "^8.0.57",
     "gulp-typescript": "^3.2.3",
     "typescript": "^2.6.2",
